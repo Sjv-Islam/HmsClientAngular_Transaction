@@ -1,0 +1,28 @@
+
+<a routerLink="/Staffcreate/create" class="btn btn-success">Add New Staff</a>
+<hr />
+<div>
+    <h2>Staff List</h2>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Staff ID</th>
+                <th>Staff Name</th>
+                <th>Designation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let staff of staffList">
+                <td>{{ staff.staffId }}</td>
+                <td>{{ staff.staffName }}</td>
+                <td>{{ staff.designation}}</td>
+                <td class="btn-group">
+                    <a [routerLink]="['/StaffEdit/edit/', staff.staffId]" class="btn btn-warning">Edit</a>
+                    <a [routerLink]="['/StaffDetails/details/', staff.staffId]" class="btn btn-info">Details</a>
+                    <button (click)="deleteStaff(staff.staffId)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

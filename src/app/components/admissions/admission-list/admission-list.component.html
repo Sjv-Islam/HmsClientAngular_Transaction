@@ -1,0 +1,33 @@
+<a routerLink="/AdmissionCreate/create" class="btn btn-success">Add New Admission</a>
+
+<hr />
+<div>
+    <h2>Admission List</h2>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Admission Id</th>
+                <th>Admission Date</th>
+                <th>Ward Name</th>
+                <th>Appointment ID</th>
+                <!-- <th>Emergency ID</th> -->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let admission of admissions">
+                <td>{{admission.admissionId}}</td>
+                <td>{{admission.admissionDate | date:'short'}}</td>
+                <td>{{admission.ward.name}}</td>
+                <td>{{admission.appointment.appointmentId}}</td>
+                <!-- <td>{{admission.emergency.emergencyId}}</td> -->
+
+                <td class="btn-group">
+                    <a [routerLink]="['/AdmissionEdit/edit/', admission.admissionId]" class="btn btn-warning">Edit</a>
+                    <button class="btn btn-danger" (click)="DeleteAdmission(admission)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

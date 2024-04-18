@@ -1,0 +1,28 @@
+
+<a routerLink="/DepartmentCreate/create" class="btn btn-success">Add New Department</a>
+<hr />
+<div>
+    <h2>Department List</h2>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dep of department">
+                <td>{{dep.departmentId}}</td>
+                <td>{{dep.name}}</td>
+
+                <td class="btn-group">
+
+                    <a [routerLink]="['/DepartmentEdit/edit/', dep.departmentId]" class="btn btn-warning">Edit</a>
+                    <a [routerLink]="['/DepartmentDetails/details/', dep.departmentId]" class="btn btn-info">Details</a>
+                    <button class="btn btn-danger" (click)="DeleteDepartment(dep)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

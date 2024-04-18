@@ -1,0 +1,37 @@
+<a routerLink="/BillingCreate/create" class="btn btn-success">Add New Bill</a>
+
+<hr />
+<div>
+    <h2>Billing List</h2>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Patient Name</th>
+                <th>DateTime</th>
+                <th>Amount</th>
+                <th>Discount</th>
+                <th>Net Amount</th>
+                <th>Paid Amountn</th>
+                <th>Balance Due</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let billing of billings">
+                <td>{{billing.billingId}}</td>
+                <td>{{billing.patient.name}}</td>
+                <td>{{billing.dateTime}}</td>
+                <td>{{billing.amount}}</td>
+                <td>{{billing.discount}}</td>
+                <td>{{billing.netAmount}}</td>
+                <td>{{billing.paidAmount}}</td>
+                <td>{{billing.balanceDue}}</td>
+                <td class="btn-group">
+                    <a [routerLink]="['/BillingEdit/edit/', billing.billingId]" class="btn btn-warning">Edit</a>
+                    <button class="btn btn-danger" (click)="DeleteBilling(billing)">Delete</button>                   
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
